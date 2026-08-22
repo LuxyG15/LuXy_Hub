@@ -13,28 +13,29 @@ if not game:IsLoaded() then
 end
 
 local b = {
-	[89469502395769] = "Kalb.lua",
-	[95082159892680] = "speed keyboard escape.lua",
-	[118941584817777] = "speed keyboard escape.lua",
+	[89469502395769] = "kick a lucky blox.lua",
+	[95082159892680] = "Speed Keyboard Escape.lua",
+	[118941584817777] = "Speed Keyboard Escape.lua",
 	[97598239454123] = "grow a garden 2.lua",
 }
+
 local c = b[game.PlaceId]
 if not c then
 	return
 end
 
 pcall(function()
-    if not loadstring then
-        return
-    end
+	if not loadstring then
+		return
+	end
 
-    local d = tostring(math.random(10000, 99999))
+	local d = tostring(math.random(10000, 99999))
+	local cleanFileName = c:gsub(" ", "%%20")
+	local e = "https://raw.githubusercontent.com/LuxyG15/LuXy_Hub/main/Games/" .. cleanFileName .. "?nocache=" .. d
 
-    local e = "https://raw.githubusercontent.com/Omnie7/Luxy-Hub/refs/heads/main/Game/" .. c .. "?nocache=" .. d
-
-    local f = game:HttpGet(e)
-    if f and f ~= "" then
-        getgenv().LUXY_SECURE_LOAD = true 
-        loadstring(f)()
-    end
+	local f = game:HttpGet(e)
+	if f and f ~= "" then
+		getgenv().LUXY_SECURE_LOAD = true 
+		loadstring(f)()
+	end
 end)
